@@ -1,8 +1,8 @@
 <div class="row h-100">
     <div class="col-sm-9 p-0 map">
-        <app-map></app-map>
+        <app-map #map></app-map>
     </div>
     <div class="col-sm-3 side">
-        <app-side-navigation></app-side-navigation>
+        <app-side-navigation (onFormSubmit) = "formSubmitted($event)"></app-side-navigation>
     </div>
 </div>

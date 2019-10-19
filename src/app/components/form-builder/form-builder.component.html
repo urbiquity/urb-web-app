@@ -1,4 +1,4 @@
-<form action="">
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
         <div class="row">
             <label class="title" for="year">Year Range</label>
         </div>
@@ -14,6 +14,8 @@
                     placeholder="Select Date"
                     [maxDate]="yearMax"
                     class="form-control"
+                    name="fromYear"
+                    ngModel
                     bsDatepicker>
             </div>
             <div class="col-sm-6 p-0 pl-1">
@@ -27,6 +29,8 @@
                     [minDate]="yearMin"
                     class="form-control"
                     [isDisabled]="isDisabled"
+                    name="toYear"
+                    ngModel
                     bsDatepicker>
             </div>
         </div>
@@ -39,14 +43,16 @@
             <input type="text"
                 id="from"
                 autocomplete="off"
-                (bsValueChange)="onFromChanged($event)"
+                (bsValueChange)="onDateChanged($event, 'from')"
                 [bsConfig]="bsConfigFrom"
                 placeholder="Select Date"
                 class="form-control"
                 [isDisabled]="isDisabled"
                 [minDate]="fromMin"
-                [maxDate]="fromMax"
+                [maxDate]="toMax"
                 [bsValue]="fromMin"
+                name="toDate"
+                ngModel
                 bsDatepicker>
         </div>
     </div>
@@ -56,18 +62,20 @@
             <input type="text"
                 id="to"
                 autocomplete="off"
-                (bsValueChange)="onToChanged($event)"
+                (bsValueChange)="onDateChanged($event, 'to')"
                 [bsConfig]="bsConfigTo"
                 placeholder="Select Date"
                 class="form-control"
                 [isDisabled]="isDisabled"
                 [minDate]="toMin"
-                [maxDate]="toMax"
+                [maxDate]="fromMax"
                 [bsValue]="toMax"
+                name="fromDate"
+                ngModel
                 bsDatepicker>
         </div>
         </div>
     <div class="row mb-4">
-        <button class="btn btn-primary w-100">SEARCH</button>
+        <button type="submit" class="btn btn-primary w-100">SEARCH</button>
     </div>
 </form>

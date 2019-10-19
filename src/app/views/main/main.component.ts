@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
+  @ViewChild('map', {static: false}) map;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  formSubmitted(data: any) {
+    this.map.updateHeatMap();
   }
 
 }

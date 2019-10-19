@@ -1,5 +1,20 @@
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
-<agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map [latitude]="lat" [longitude]="lng" (mapReady)="onMapLoad($event)" [zoom]="15"
+    (mapClick)="addMarker($event.coords.lat, $event.coords.lng)">
+    <!-- <agm-marker 
+        *ngFor="let marker of markers"
+        [latitude]="marker.lat"
+        [longitude]="marker.lng"
+        [opacity]="marker.alpha"
+        [markerDraggable]="true"
+        (markerClick)="selectMarker($event)">
+    </agm-marker> -->
+
+    <!-- <agm-rectangle
+        [north]="max('lat')"
+        [east]="max('lng')"
+        [south]="min('lat')"
+        [west]="min('lng')"
+    ></agm-rectangle> -->
 </agm-map>

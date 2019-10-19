@@ -10,7 +10,8 @@
 
 .map-cover {
     background-color: #204197;
-    opacity: .6;
+    opacity: .7;
+    position: relative;
 }
 
 .green {
@@ -20,12 +21,14 @@
 .side-title {
     color: #204197;
     margin-bottom: 10vh;
+    font-family: ubuntu;
 }
 
 .login-title {
     font-weight: 600;
-    letter-spacing: 1vh;
+    letter-spacing: .5vh;
     color: #17a2b8;
+    font-family: ubuntu;
 }
 
 .btn-primary {
@@ -45,3 +48,26 @@
     background-color: #204197;
     border-color: #204197;
 }
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding-left: 5em;
+  }
+
+  .cover-title {
+      font-size: 10vh;
+      color: white;
+      font-weight: 700;
+      letter-spacing: .8vh;
+      font-family: ubuntu;
+  }
+
+  .cover-body {
+      font-size: 3vh;
+      font-family: ubuntu;
+      color: white;
+  }

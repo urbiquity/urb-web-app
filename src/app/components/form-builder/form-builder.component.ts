@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { BsDatepickerConfig, BsDatepickerViewMode } from 'ngx-bootstrap/datepicker';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-form-builder',
@@ -7,6 +8,8 @@ import { BsDatepickerConfig, BsDatepickerViewMode } from 'ngx-bootstrap/datepick
   styleUrls: ['./form-builder.component.scss']
 })
 export class FormBuilderComponent implements OnInit {
+  @Output() onFormSubmit: EventEmitter<any> = new EventEmitter<any>();
+
   minModeYear: BsDatepickerViewMode = 'year';
 
   bsConfigYear: Partial<BsDatepickerConfig>;
@@ -48,23 +51,32 @@ export class FormBuilderComponent implements OnInit {
     });
   }
 
+
+  onSubmit(myForm: NgForm) {
+    this.onFormSubmit.emit('submit');
+  }
+
   onYearChanged(data: Date, type: string) : void {
 
-    if(type === 'from') {
-      this.yearMin = data;
+    if(data !== null){
 
-      this.setDateRange(this.yearMin, this.yearMin);
+      if(type === 'from') {
+        this.yearMin = data;
 
-    } else {
-      this.yearMax = data;
+        this.setDateRange(this.yearMin, this.yearMin);
 
-      this.setDateRange(this.yearMin, this.yearMax);
+      } else {
+        this.yearMax = data;
+
+        this.setDateRange(this.yearMin, this.yearMax);
+      }
+
     }
 
   }
 
   setDateRange(min: Date, max: Date) {
-    this.fromMin = new Date('01-01-' + min.getFullYear());
+    this.fromMin = new Date('01-01-' + min.getFullYear  ());
     this.fromMax = new Date('12-31-' + max.getFullYear());
 
     this.toMin = this.fromMin;
@@ -73,12 +85,13 @@ export class FormBuilderComponent implements OnInit {
     this.isDisabled = false;
   }
 
-  onFromChanged(data: Date) : void {
-
-  }
-
-  onToChanged(data: Date) : void {
-
+  onDateChanged(data: Date, type: string) : void {
+    
+    if( type === 'from') {
+      this.toMin = data;
+    } else {
+      this.toMax = data;
+    }
   }
 
 }
