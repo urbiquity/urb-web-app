@@ -1,0 +1,47 @@
+.side {
+    padding: 5em 4.5em 2em 3.5em;
+}
+
+.map-bg {
+    background-image: url('../../../assets/img/map.jpg');
+    background-size: cover;
+    box-shadow: 5px 10px 10px #acacac;
+}
+
+.map-cover {
+    background-color: #204197;
+    opacity: .6;
+}
+
+.green {
+    color: #85C33D;
+}
+
+.side-title {
+    color: #204197;
+    margin-bottom: 10vh;
+}
+
+.login-title {
+    font-weight: 600;
+    letter-spacing: 1vh;
+    color: #17a2b8;
+}
+
+.btn-primary {
+    background-color: #204197;
+    border-color: #204197;
+    height: 3.5em;
+    font-weight: 600;
+    letter-spacing: .5vh;
+}
+
+
+.btn-primary:hover{
+    background-color: #031d5e;
+}
+
+.btn-primary:focus{
+    background-color: #204197;
+    border-color: #204197;
+}

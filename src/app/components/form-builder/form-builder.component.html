@@ -1,1 +1,73 @@
-<p>form-builder works!</p>
+<form action="">
+        <div class="row">
+            <label class="title" for="year">Year Range</label>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-sm-6 p-0 pr-1">
+                <label for="year">From</label>
+                <input type="text"
+                    id="year"
+                    autocomplete="off"
+                    (bsValueChange)="onYearChanged($event, 'from')"
+                    [bsConfig]="bsConfigYear"
+                    placeholder="Select Date"
+                    [maxDate]="yearMax"
+                    class="form-control"
+                    bsDatepicker>
+            </div>
+            <div class="col-sm-6 p-0 pl-1">
+                <label for="year">To</label>
+                <input type="text"
+                    id="year"
+                    autocomplete="off"
+                    (bsValueChange)="onYearChanged($event, 'to')"
+                    [bsConfig]="bsConfigYear"
+                    placeholder="Select Date"
+                    [minDate]="yearMin"
+                    class="form-control"
+                    [isDisabled]="isDisabled"
+                    bsDatepicker>
+            </div>
+        </div>
+    <div class="row">
+        <label class="title">Date Range</label>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-12 p-0 pr-1">
+            <label for="from">From</label>
+            <input type="text"
+                id="from"
+                autocomplete="off"
+                (bsValueChange)="onFromChanged($event)"
+                [bsConfig]="bsConfigFrom"
+                placeholder="Select Date"
+                class="form-control"
+                [isDisabled]="isDisabled"
+                [minDate]="fromMin"
+                [maxDate]="fromMax"
+                [bsValue]="fromMin"
+                bsDatepicker>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-sm-12 p-0 pr-1">
+            <label for="to">To</label>
+            <input type="text"
+                id="to"
+                autocomplete="off"
+                (bsValueChange)="onToChanged($event)"
+                [bsConfig]="bsConfigTo"
+                placeholder="Select Date"
+                class="form-control"
+                [isDisabled]="isDisabled"
+                [minDate]="toMin"
+                [maxDate]="toMax"
+                [bsValue]="toMax"
+                bsDatepicker>
+        </div>
+        </div>
+    <div class="row mb-4">
+        <button class="btn btn-primary w-100">SEARCH</button>
+    </div>
+</form>

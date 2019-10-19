@@ -1,0 +1,25 @@
+label {
+    letter-spacing: .3vh;
+}
+
+.title{
+    font-weight: 600;
+    color: #204197;
+}
+
+.btn-primary {
+    background-color: #204197;
+    border-color: #204197;
+    height: 3.5em;
+    letter-spacing: .8vh;
+    font-weight: bold;
+}
+
+.btn-primary:hover{
+    background-color: #031d5e;
+}
+
+.btn-primary:focus{
+    background-color: #204197;
+    border-color: #204197;
+}
