@@ -15,7 +15,8 @@ export class MainComponent implements OnInit {
   }
 
   formSubmitted(data: any) {
-    this.map.updateHeatMap();
+    console.log(data);
+    this.map.updateHeatMap(data);
   }
 
 }

@@ -14,7 +14,7 @@ export class SideNavigationComponent implements OnInit {
   }
 
   formSubmitted(data: any){
-    this.onFormSubmit.emit('submit');
+    this.onFormSubmit.emit(data);
   }
 
 }

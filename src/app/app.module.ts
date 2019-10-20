@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { ModalModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
+
 // Datepicker bootstrap module
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
@@ -11,6 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // Angular Google Map Overlay module
 import { AgmOverlays } from 'agm-overlays';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,7 +50,9 @@ import { AgmCoreModule } from '@agm/core';
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    AgmSnazzyInfoWindowModule
   ],
   providers: [],
   bootstrap: [AppComponent]

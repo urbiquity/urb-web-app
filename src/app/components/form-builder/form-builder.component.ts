@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { BsDatepickerConfig, BsDatepickerViewMode } from 'ngx-bootstrap/datepicker';
 import { NgForm } from '@angular/forms';
+import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-form-builder',
@@ -53,7 +54,17 @@ export class FormBuilderComponent implements OnInit {
 
 
   onSubmit(myForm: NgForm) {
-    this.onFormSubmit.emit('submit');
+    let report: string;
+    const year = myForm.value.fromYear.getFullYear();
+    console.log(year);
+    if(year === 2012){
+      report = 'jvalley';
+    } else if (year === 2016) {
+      report = 'buda';
+    } else if (year === 2019) {
+      report = 'bangkal'
+    }
+    this.onFormSubmit.emit(report);
   }
 
   onYearChanged(data: Date, type: string) : void {
